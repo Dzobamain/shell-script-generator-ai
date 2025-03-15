@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 #include "program_config.h"
+#include "chat/ai_response.h"
 
 PyObject* SendToGemini(char* text);
-void PrintGeminiResponse(PyObject *pResult);
 
 int main() 
 {
@@ -79,15 +79,4 @@ PyObject* SendToGemini(char* text)
     }
 
     return pResult;
-}
-
-void PrintGeminiResponse(PyObject *pResult)
-{
-    if (pResult) {
-        printf("GEMINI: %s\n", PyUnicode_AsUTF8(pResult));
-        Py_DECREF(pResult);
-    } else {
-        printf("Error: No result returned from Python function\n");
-        PyErr_Print();
-    }
 }
