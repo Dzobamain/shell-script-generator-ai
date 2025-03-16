@@ -1,1 +1,1 @@
-const int LENGHT_USER_TEXT = 500;
+#define LENGHT_USER_TEXT 500
