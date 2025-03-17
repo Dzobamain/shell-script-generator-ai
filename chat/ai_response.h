@@ -4,5 +4,6 @@
 #include <Python.h>
 
 void PrintGeminiResponse(PyObject *pResult);
+char* GetGeminiResponse(PyObject *pResult);
 
 #endif // AI_RESPONSE_H
