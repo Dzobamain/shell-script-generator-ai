@@ -6,6 +6,7 @@
 #include "ai/send_to_gemini.h"
 #include "chat/user_input.h"
 #include "chat_history/file.h"
+#include "program_config.h"
 
 int main() 
 {
@@ -35,9 +36,11 @@ int main()
             break;
         }
 
-        SaveToFile(user_text);
-        SaveToFile(ai_text);
+        SaveToFile(CHAT_HISTORY_PATH, user_text);
+        SaveToFile(CHAT_HISTORY_PATH, ai_text);
     }
+
+    ClearFile(CHAT_HISTORY_PATH);
 
     Py_DECREF(pResult);
     free(ai_text);
