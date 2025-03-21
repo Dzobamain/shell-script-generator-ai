@@ -3,7 +3,6 @@
 
 #include <Python.h>
 
-void PrintGeminiResponse(PyObject *pResult);
-char* GetGeminiResponse(PyObject *pResult);
+void PrintGeminiResponse(char *ai_text);
 
 #endif // AI_RESPONSE_H

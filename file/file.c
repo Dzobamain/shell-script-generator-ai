@@ -25,3 +25,4 @@ void ClearFile(char file_path[100])
 
     fclose(file);
 }
+

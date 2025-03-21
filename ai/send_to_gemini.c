@@ -2,7 +2,7 @@
 
 #include <Python.h>
 
-PyObject* SendToGemini(char* text) 
+char* SendToGemini(char* text) 
 {
     if (!Py_IsInitialized()) {
         printf("Error: Python is not initialized\n");
@@ -50,5 +50,18 @@ PyObject* SendToGemini(char* text)
         PyErr_Print();
     }
 
-    return pResult;
+    const char *result_str = PyUnicode_AsUTF8(pResult);
+    if (!result_str) {
+        printf("Error: Unable to convert Python object to UTF-8\n");
+        PyErr_Print();
+        return NULL;
+    }
+
+    char *result_copy = strdup(result_str);
+    if (!result_copy) {
+        printf("Error: Memory allocation for result failed\n");
+        return NULL;
+    }
+
+    return result_copy;
 }

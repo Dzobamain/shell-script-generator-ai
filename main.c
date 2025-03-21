@@ -5,7 +5,7 @@
 #include "chat/ai_response.h"
 #include "ai/send_to_gemini.h"
 #include "chat/user_input.h"
-#include "chat_history/file.h"
+#include "file/file.h"
 #include "program_config.h"
 
 int main() 
@@ -27,12 +27,10 @@ int main()
             break;
         }
 
-        pResult = SendToGemini(user_text);
-        ai_text = GetGeminiResponse(pResult);
-        PrintGeminiResponse(pResult);
+        ai_text = SendToGemini(user_text);
+        PrintGeminiResponse(ai_text);
 
         if (ai_text == NULL) {
-            isStart = false;
             break;
         }
 
