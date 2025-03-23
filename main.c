@@ -16,8 +16,6 @@ int main()
     char* user_text;
     char* ai_text;
 
-    PyObject *pResult;
-
     while (isStart)
     {
         user_text = GetUserResponse();
@@ -40,7 +38,6 @@ int main()
 
     ClearFile(CHAT_HISTORY_PATH);
 
-    Py_DECREF(pResult);
     free(ai_text);
     free(user_text);
 

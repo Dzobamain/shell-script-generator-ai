@@ -10,6 +10,6 @@ void PrintGeminiResponse(char *ai_text)
         return;
     } 
 
-    printf("\033[0;35mGemini: \033[0m%s\n", ai_text);
+    printf("\033[0;35mGemini: \033[0m%s", ai_text);
 }
 
