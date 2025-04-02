@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "file.h"
 
-void SaveToFile(char file_path[100], char* text)
+void SaveToFile(char* file_path, char* text)
 {
     FILE *file = fopen(file_path, "a");
 
@@ -14,7 +16,7 @@ void SaveToFile(char file_path[100], char* text)
     fclose(file);
 }
 
-void ClearFile(char file_path[100])
+void ClearFile(char* file_path)
 {
     FILE *file = fopen(file_path, "w");
 
@@ -25,4 +27,3 @@ void ClearFile(char file_path[100])
 
     fclose(file);
 }
-
