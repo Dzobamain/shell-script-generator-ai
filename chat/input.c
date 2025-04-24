@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <Python.h>
-#include "user_input.h"
+#include "input.h"
 #include "../program_config.h"
 
 char* GetUserResponse()
@@ -17,4 +17,15 @@ char* GetUserResponse()
     text[strcspn(text, "\n")] = '\0';
 
     return text;
+}
+
+int CheckInput(const char* text, const char* sumbol)
+{
+    int check = 1;
+
+    if (text == NULL || strcmp(text, sumbol) == 0) {
+        check = 0;
+    }
+
+    return check;
 }

@@ -3,11 +3,9 @@
 
 #include "chat/ai_response.h"
 #include "ai/send_to_gemini.h"
-#include "chat/user_input.h"
-#include "file/file.h"
+#include "chat/input.h"
+#include "chat/file/file.h"
 #include "program_config.h"
-
-int CheckInput(const char* text, const char* sumbol);
 
 int main() 
 {
@@ -35,15 +33,4 @@ int main()
     Py_Finalize();
 
     return 0;
-}
-
-int CheckInput(const char* text, const char* sumbol)
-{
-    int check = 1;
-
-    if (text == NULL || strcmp(text, sumbol) == 0) {
-        check = 0;
-    }
-
-    return check;
 }

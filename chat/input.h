@@ -6,5 +6,6 @@
 #include <Python.h>
 
 char* GetUserResponse();
+int CheckInput(const char* text, const char* sumbol);
 
 #endif // USER_INPUT_H
