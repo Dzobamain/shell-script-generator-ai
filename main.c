@@ -1,6 +1,5 @@
 #include <Python.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #include "chat/ai_response.h"
 #include "ai/send_to_gemini.h"
@@ -8,29 +7,26 @@
 #include "file/file.h"
 #include "program_config.h"
 
+int CheckInput(const char* text, const char* sumbol);
+
 int main() 
 {
     Py_Initialize();
 
-    bool isStart = true;
+    int isStart = 1;
     char* user_text;
     char* ai_text;
 
     while (isStart)
     {
         user_text = GetUserResponse();
-
-        if (user_text == NULL || strcmp(user_text, "q") == 0) {
-            isStart = false;
+        isStart = CheckInput(user_text, "q");
+        if (isStart == 0)
             break;
-        }
 
         ai_text = SendToGemini(user_text);
+        isStart = CheckInput(user_text, "q");
         PrintGeminiResponse(ai_text);
-
-        if (ai_text == NULL) {
-            break;
-        }
 
         SaveToFile(CHAT_HISTORY_PATH, user_text);
         SaveToFile(CHAT_HISTORY_PATH, ai_text);
@@ -46,3 +42,13 @@ int main()
     return 0;
 }
 
+int CheckInput(const char* text, const char* sumbol)
+{
+    int check = 1;
+
+    if (text == NULL || strcmp(text, sumbol) == 0) {
+        check = 0;
+    }
+
+    return check;
+}

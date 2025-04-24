@@ -1,20 +1,27 @@
 @echo off
-set OUT=program.exe
+setlocal enabledelayedexpansion
 
-:: Path to Python header and library files
-set CFLAGS=-I"C:\Python312\include"
-set LDFLAGS=-L"C:\Python312\libs" -lpython312
+set OUT=ssg.exe
+
+set "CFLAGS=-IC:\Python312\include"
+set "LDFLAGS=-LC:\Python312\libs -lpython312"
+
+set SRC=
 
 for /r %%f in (*.c) do (
-    set SRC=%%f
+    set "SRC=!SRC! %%f"
 )
 
-if not defined SRC (
+if "%SRC%"=="" (
     echo No .c files found.
     exit /b 1
 )
 
-gcc %CFLAGS% %LDFLAGS% %SRC% -o %OUT%
+gcc %SRC% %CFLAGS% %LDFLAGS% -o %OUT%
+if errorlevel 1 (
+    echo ❌ Build failed.
+    exit /b 1
+)
 
-echo Build complete. Executable is: %OUT%
+echo ✅ Build complete. Executable is: %OUT%
 pause
