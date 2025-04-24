@@ -17,8 +17,7 @@ int main()
     char* user_text;
     char* ai_text;
 
-    while (isStart)
-    {
+    while (isStart) {
         user_text = GetUserResponse();
         isStart = CheckInput(user_text, "q");
         if (isStart == 0)
@@ -31,11 +30,7 @@ int main()
         SaveToFile(CHAT_HISTORY_PATH, user_text);
         SaveToFile(CHAT_HISTORY_PATH, ai_text);
     }
-
     ClearFile(CHAT_HISTORY_PATH);
-
-    free(ai_text);
-    free(user_text);
 
     Py_Finalize();
 
