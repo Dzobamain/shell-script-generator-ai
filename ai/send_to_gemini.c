@@ -2,8 +2,7 @@
 
 #include <Python.h>
 
-char* SendToGemini(char* text) 
-{
+char* SendToGemini(const char* text) {
     if (!Py_IsInitialized()) {
         printf("Error: Python is not initialized\n");
         return NULL;

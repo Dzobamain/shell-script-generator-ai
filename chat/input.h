@@ -5,8 +5,8 @@
 #include <string.h>
 #include <Python.h>
 
-char* GetUserResponse();
-int CheckInput(const char* text, const char* sumbol);
-char* GetScriptSavePath();
+extern char* GetUserResponse();
+extern int CheckInput(const char* text, const char* sumbol);
+extern char* GetScriptSavePath();
 
 #endif // USER_INPUT_H

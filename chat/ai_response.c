@@ -2,8 +2,7 @@
 #include <Python.h>
 #include <stdlib.h>
 
-void PrintGeminiResponse(char *ai_text)
-{
+void PrintGeminiResponse(const char *ai_text) {
     if (!ai_text) {
         printf("Error: Not text\n");
         PyErr_Print();

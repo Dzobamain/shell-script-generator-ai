@@ -5,8 +5,7 @@
 #include "../program_config.h"
 #include "file/file.h"
 
-char* GetUserResponse()
-{
+char* GetUserResponse() {
     char* text = (char*)malloc(LENGHT_USER_TEXT * sizeof(char));
     if (!text) {
         printf("Error: Memory allocation failed\n");
@@ -43,8 +42,7 @@ char* GetScriptSavePath() {
     return text;
 }
 
-int CheckInput(const char* text, const char* sumbol)
-{
+int CheckInput(const char* text, const char* sumbol) {
     int check = 1;
 
     if (text == NULL || strcmp(text, sumbol) == 0) {

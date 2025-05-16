@@ -18,7 +18,7 @@ int FolderExists(const char *path) {
     }
 }
 
-void SaveToFile(char* file_path, char* text) {
+void SaveToFile(const char* file_path, const char* text) {
     FILE *file = fopen(file_path, "a");
 
     if (!file) {
@@ -30,7 +30,7 @@ void SaveToFile(char* file_path, char* text) {
     fclose(file);
 }
 
-void ClearFile(char* file_path) {
+void ClearFile(const char* file_path) {
     FILE *file = fopen(file_path, "w");
 
     if (!file) {

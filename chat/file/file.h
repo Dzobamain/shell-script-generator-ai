@@ -6,10 +6,10 @@
 #include <string.h>
 #include <sys/stat.h>
 
-void SaveToFile(char *file_path, char *text);
-void ClearFile(char *file_path);
-void SaveScriptToFile(char *file_path, char *sript_text);
-int FolderExists(const char *path);
+extern void SaveToFile(const char* file_path, const char* text);
+extern void ClearFile(const char* file_path);
+extern void SaveScriptToFile(const char *file_path, const char *sript_text);
+extern int FolderExists(const char *path);
 
 
 #endif // FILE_H

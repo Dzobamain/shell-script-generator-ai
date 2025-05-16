@@ -7,8 +7,7 @@
 #include "chat/file/file.h"
 #include "program_config.h"
 
-int main()
-{
+int main() {
     Py_Initialize();
 
     int isStart = 1;

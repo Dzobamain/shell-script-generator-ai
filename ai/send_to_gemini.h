@@ -3,6 +3,6 @@
 
 #include <Python.h>
 
-char* SendToGemini(char* text);
+extern char* SendToGemini(const char* text);
 
 #endif // SEND_TO_GEMINI_H
