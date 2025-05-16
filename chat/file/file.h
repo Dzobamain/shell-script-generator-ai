@@ -5,5 +5,6 @@
 
 void SaveToFile(char* file_path, char* text);
 void ClearFile(char* file_path);
+void SaveScriptToFile(char* file_path, char* sript_text);
 
 #endif // FILE_H
