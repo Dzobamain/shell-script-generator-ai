@@ -7,15 +7,21 @@
 #include "chat/file/file.h"
 #include "program_config.h"
 
-int main() 
+int main()
 {
     Py_Initialize();
 
     int isStart = 1;
-    char* user_text;
-    char* ai_text;
+    char *user_text;
+    char *ai_text;
 
-    while (isStart) {
+    char *path = NULL;
+    do {
+        path = GetScriptSavePath();
+    } while (path == NULL);
+
+    while (isStart)
+    {
         user_text = GetUserResponse();
         isStart = CheckInput(user_text, "q");
         if (isStart == 0)
@@ -23,6 +29,9 @@ int main()
 
         ai_text = SendToGemini(user_text);
         isStart = CheckInput(user_text, "q");
+        if (isStart == 0)
+            break;
+
         PrintGeminiResponse(ai_text);
 
         SaveToFile(CHAT_HISTORY_PATH, user_text);

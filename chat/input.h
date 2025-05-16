@@ -7,5 +7,6 @@
 
 char* GetUserResponse();
 int CheckInput(const char* text, const char* sumbol);
+char* GetScriptSavePath();
 
 #endif // USER_INPUT_H

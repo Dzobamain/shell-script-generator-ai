@@ -2,6 +2,9 @@
 #define FILE_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
 
 void SaveToFile(char *file_path, char *text);
 void ClearFile(char *file_path);
